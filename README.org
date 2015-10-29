@@ -1,0 +1,11 @@
+
+
+* How to get started
+  :PROPERTIES:
+  :ID:       cc1ca7e0-2bcc-4d36-bbcd-55a4a2e7f33e
+  :END:
+  
+
+  #+begin_src sh
+
+  #+end_src
