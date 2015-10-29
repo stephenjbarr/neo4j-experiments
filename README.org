@@ -5,7 +5,59 @@
   :ID:       cc1ca7e0-2bcc-4d36-bbcd-55a4a2e7f33e
   :END:
   
+** Stack
 
   #+begin_src sh
-
+stack new neo4j-experiments --resolver lts-3.11
   #+end_src
+
+
+** Docker
+   :PROPERTIES:
+   :ID:       d034897b-c383-4573-8b91-8d5c54b42ed5
+   :END:
+   
+
+   - Visit the [[http://neo4j.com/developer/docker/][Neo4j + Docker page]].
+   - You can look at all of the [[https://hub.docker.com/r/neo4j/neo4j/tags/][different neo4j images]] on DockerHub.
+   - Pull the image and run it
+
+   #+begin_src sh 
+   mkdir -p ~/neo4j-data
+   docker pull neo4j/neo4j
+   docker run -d --name neo4j -v $HOME/neo4j-data:/data -p 8474:7474 neo4j/neo4j
+   #+end_src
+
+   Then, use =docker ps= to make sure that it is running.
+
+
+   #+begin_src sh
+
+stevejb@linear:~/Haskell/neo4j-experiments$ stevejb@linear:~/Haskell/neo4j-experiments$ docker ps
+CONTAINER ID        IMAGE                COMMAND                CREATED             STATUS              PORTS                              NAMES
+b11e5ec690a3        neo4j/neo4j:latest   "/docker-entrypoint.   42 seconds ago      Up 41 seconds       7473/tcp, 0.0.0.0:8474->7474/tcp   neo4j               
+
+   #+end_src
+
+
+   - Set a new password. I'll pick =xenon=.
+
+** Verify that you can talk to it from Haskell
+   :PROPERTIES:
+   :ID:       b3f3160d-a96b-4843-a6f0-86d9fdbf205a
+   :END:
+
+
+   #+begin_src sh
+
+stack ghci --main-is neo4j-experiments:exe:neo4j-experiments-exe
+
+   #+end_src
+   
+
+* Links
+
+  1. https://www.fpcomplete.com/user/tel/lens-aeson-traversals-prisms
+  2. https://randomuser.me/documentation
+  3. https://hackage.haskell.org/package/containers-0.5.6.3/docs/Data-Map-Strict.html
+  4. 
