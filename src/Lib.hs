@@ -32,20 +32,24 @@ run     = withAuthConnection test_host test_port test_creds
 -- | ---------------------------------------------------------------------------
 
 
+
+
+
+
 -- | Use wreq to get some random users
 -- 
-data User = User {
-    uname   :: String
-  -- , ugender :: String
-  -- , uemail  :: String  
-  }
+-- data User = User {
+--     uname   :: String
+--   -- , ugender :: String
+--   -- , uemail  :: String  
+--   }
 
 
 
-getName rb = rb ^? key "results" . nth 0 . key "user" . key "email"
+-- getName rb = rb ^? key "results" . nth 0 . key "user" . key "email"
 
-getRandUsers :: Int -> IO [User]
-getRandUsers n = do
-  r <-   get "http://api.randomuser.me"
-  let rb = rr ^. responseBody
+-- getRandUsers :: Int -> IO [User]
+-- getRandUsers n = do
+--   r <-   get "http://api.randomuser.me"
+--   let rb = rr ^. responseBody
   
