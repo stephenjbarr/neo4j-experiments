@@ -1,0 +1,3 @@
+:set -XScopedTypeVariables
+:set -XOverloadedStrings
+:set prompt " λ: "
